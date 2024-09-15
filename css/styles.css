@@ -25,12 +25,17 @@ button {
 
 /* -------------------- HEADER+NAVBAR -------------------- */
 nav {
+  max-width: 980px;
   width: 100%;
   display: flex;
   justify-content: center;
+  margin: 0 auto;
+  padding-inline: 10px;
+  border: 1px solid white;
 }
 .nav-content {
-  width: 980px;
+
+  width: 100%;
 }
 .nav-content ul {
   display: flex;
@@ -92,16 +97,18 @@ nav {
 /* Navbar #2 - Sticky Functioning (.airpods-navbar) */
 .sticky {
   position: fixed;
+  width: 100%; /* Or any specific width like 80% */
+  left: 50%;
+  transform: translateX(-50%);
   top: 0;
-
   -webkit-backdrop-filter: saturate(180%) blur(15px);
   -moz-backdrop-filter: saturate(180%) blur(15px);
   -o-backdrop-filter: saturate(180%) blur(15px);
   backdrop-filter: saturate(180%) blur(15px);
-
   border-bottom: 1px solid rgba(255, 255, 255, 0.25);
   z-index: 10;
 }
+
 .sticky .nav-content {
   border-bottom: none;
 }
@@ -115,6 +122,8 @@ section {
   min-height: 100vh;
   background: #000;
   color: #f5f5f7;
+  border: 1px solid white;
+  padding-inline: 10px;
 }
 
 /* ------------ SCROLL SECTIONS ------------ */
@@ -188,7 +197,8 @@ section {
 
 /* SECTION #1 */
 .section-01 .canvas-elem canvas {
-  width: 900px;
+  max-width: 900px;
+  width: 100%;
 }
 
 /* SECTION #2 */
@@ -210,7 +220,7 @@ section {
 
 /* SECTION #4 */
 .section-04 .text {
-  width: 340px;
+  max-width: 340px;
   position: absolute;
   font-size: 22px;
   font-weight: 600;
@@ -268,7 +278,7 @@ section {
   padding-bottom: 0;
 }
 .section-06 .text {
-  width: 440px;
+  max-width: 440px;
   position: absolute;
   left: 17%;
   bottom: 120px;
@@ -298,4 +308,9 @@ footer .content {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+/* Custom Css */
+.section-04-1 img, .section-04-2 img, .section-04-3 img,.section-05-2 img,.section-05-1 img {
+  width: 100%;
+  max-width: 65%;
 }
