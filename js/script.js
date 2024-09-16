@@ -43,37 +43,57 @@ pagewrapper.addEventListener("touchmove", function (e) {
 });
 
 
+gsap.to(".marquee", {
+  transform: "translateX(0%)",
+  duration: 2,
+  repeat: -1,
+  ease: "none",
+});
 
-gsap.to(".marquee",{
-  transform:"translateX(0%)",
-  duration:2,
-  repeat:-1,
-  ease:"none",
-})
-gsap.to(".marquee i",{
-  rotate:0,
-})
-window.addEventListener("wheel",function(position){
-  if(position.deltaY <0){
-  gsap.to(".marquee",{
-    transform:"translateX(-200%)",
-    duration:2,
-    repeat:-1,
-    ease:"none",
-  })
-  gsap.to(".marquee i",{
-    rotate:-180,
-  })
+gsap.to(".marquee i", {
+  rotate: 0,
+});
+
+// Function to handle both scroll and touch events
+function handleScrollOrTouch(deltaY) {
+  if (deltaY < 0) {
+    gsap.to(".marquee", {
+      transform: "translateX(-200%)",
+      duration: 2,
+      repeat: -1,
+      ease: "none",
+    });
+    gsap.to(".marquee i", {
+      rotate: -180,
+    });
+  } else {
+    gsap.to(".marquee", {
+      transform: "translateX(0%)",
+      duration: 2,
+      repeat: -1,
+      ease: "none",
+    });
+    gsap.to(".marquee i", {
+      rotate: 0,
+    });
+  }
 }
-else{
-  gsap.to(".marquee",{
-    transform:"translateX(0%)",
-    duration:2,
-    repeat:-1,
-    ease:"none",
-  })
-  gsap.to(".marquee i",{
-    rotate:0,
-  })
-}
-})
+
+// Wheel event for desktop
+window.addEventListener("wheel", function (position) {
+  handleScrollOrTouch(position.deltaY);
+});
+
+// Touch event for mobile
+let touchStartY = 0;
+let touchEndY = 0;
+
+window.addEventListener("touchstart", function (e) {
+  touchStartY = e.touches[0].clientY;
+});
+
+window.addEventListener("touchmove", function (e) {
+  touchEndY = e.touches[0].clientY;
+  const deltaY = touchStartY - touchEndY; // Calculate the vertical touch movement
+  handleScrollOrTouch(deltaY);
+});
