@@ -314,3 +314,6 @@ footer .content {
   width: 100%;
   max-width: 65%;
 }
+section.section-02.scroll-section.head-bob-turn {
+  padding: 0px !important;
+}

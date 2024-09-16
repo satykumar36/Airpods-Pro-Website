@@ -1,19 +1,162 @@
-@media only screen and (max-width: 460px) {
+@media only screen and (max-width: 960px) {
+    .msg-elem h2 {
+      font-size: 86px;
+    }
+    .section-04 .text {
+      font-size: 18px;
+    }
+    .section-04-1 .text {
+      bottom: 15px;
+    }
+    .section-04-3 .text {
+      top: 64%;
+    }
+    .section-05-1 .text {
+      top: 66%;
+    }
+    .section-05-1 .text h1 {
+      font-size: 86px;
+  }
+  .section-05-2 .text {
+      right: 10%;
+      font-size: 20px;
+  }
+  .section-06 .text {
+      left: 9%;
+      bottom: 70px;
+  }
+  .section-06 .text p {
+      font-size: 17px;
+  }
+  }
+  @media only screen and (max-width: 900px) {
+    .main-elem h1 {
+      font-size: 122px;
+    }
+    .msg-elem p {
+      font-size: 44px;
+    }
+    .msg-elem h2 {
+      font-size: 76px;
+    }
+    .section-05-1 .text h1 {
+      font-size: 76px;
+  }
+  .section-05-2 .text {
+      right: 8%;
+      bottom: -44px;
+      font-size: 16px;
+  }
+  .section-06 .text {
+      left: 7%;
+      bottom: 60px;
+  }
+  }
+  @media only screen and (max-width: 768px) {
+    .main-elem h1 {
+      font-size: 90px;
+    }
+    .msg-elem p {
+      font-size: 34px;
+    }
+    .msg-elem h2 {
+      font-size: 56px;
+    }
+    .section-04 .text {
+      font-size: 12px;
+    }
+    .section-05-1 .text {
+      top: 87%;
+    }
+    .section-05-1 .text h1 {
+      font-size: 66px;
+  }
+  .section-05-2 .text {
+      right: 8%;
+      bottom:-55px;
+      font-size: 12px;
+  }
+  .section-06 .text {
+      left: 5%;
+      bottom: 50px;
+  }
+  .section-06 .text p {
+      font-size: 12px;
+  }
+  }
+  @media only screen and (max-width: 560px) {
+    .main-elem h1 {
+      font-size: 60px;
+    }
+    .msg-elem p {
+      font-size: 24px;
+    }
+    .msg-elem h2 {
+      font-size: 46px;
+    }
+    .section-05-1 .text h1 {
+      font-size: 56px;
+  }
+  .section-05-2 .text {
+      right: 8%;
+      bottom:-65px;
+      font-size: 10px;
+  }
+  }
+  @media only screen and (max-width: 460px) {
     .nav-logo a {
-        font-size: 16px;
+      font-size: 16px;
     }
     .nav-content ul {
-        column-gap: 15px;
+      column-gap: 15px;
     }
-}
-@media only screen and (max-width: 400px) {
+    .msg-elem p {
+      font-size: 14px;
+    }
+    .msg-elem h2 {
+      font-size: 36px;
+    }
+    .section-04 .text {
+      font-size: 10px;
+    }
+    .section-04-1 .text {
+      bottom: 10px;
+    }
+    .section-04-2 .text {
+      bottom: 20px;
+    }
+    .section-05-1 .text h1 {
+      font-size: 46px;
+  }
+  .section-05-2 .text {
+      right: 8%;
+      bottom:-75px;
+      font-size: 10px;
+  }
+  }
+  @media only screen and (max-width: 400px) {
     .nav-content ul {
-        column-gap: 10px;
+      column-gap: 10px;
     }
     .nav-items button {
-        font-size: 8px;
+      font-size: 8px;
     }
     .nav-logo a {
-        font-size: 15px;
+      font-size: 15px;
     }
-}
+    .main-elem h1 {
+      font-size: 50px;
+    }
+    .msg-elem h2 {
+      font-size: 26px;
+    }
+    .section-05-1 .text h1 {
+      font-size: 36px;
+  }
+  .section-05-2 .text {
+      right: 8%;
+      bottom:-85px;
+      font-size: 10px;
+  }
+  }
+  
