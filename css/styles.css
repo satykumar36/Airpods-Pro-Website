@@ -295,18 +295,12 @@ width: 100%;
 
 /* ------------ FOOTER ------------ */
 footer {
-  width: 100%;
   background: #f5f5f7;
-  display: flex;
-  justify-content: center;
 }
-footer .content {
-  padding: 40px 0px;
-  width: 980px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+footer .my-4 {
+  margin:0 !important
 }
+
 /* Custom Css */
 .section-04-1 img, .section-04-2 img, .section-04-3 img,.section-05-2 img,.section-05-1 img {
   width: 100%;
@@ -314,4 +308,12 @@ footer .content {
 }
 section.section-02.scroll-section.head-bob-turn {
   padding: 0px !important;
+}
+.cursor {
+  height: 30px;
+  width: 30px;
+  background-color: rgb(248, 242, 242);
+  border-radius: 50%;
+  position: fixed;
+  z-index: 9;
 }

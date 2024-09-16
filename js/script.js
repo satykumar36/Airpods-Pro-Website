@@ -14,3 +14,17 @@ window.addEventListener("scroll", () => {
 
 /* ScrollMagic Controller */
 let controller = new ScrollMagic.Controller();
+
+
+
+
+// GSAP
+var pagewrapper = document.querySelector(".section-01");
+var cursor = document.querySelector(".cursor");
+pagewrapper.addEventListener("mousemove", function (dots) {
+  gsap.to(".cursor", {
+    x: dots.x,
+    y: dots.y,
+    duration:1.2,
+  });
+});
