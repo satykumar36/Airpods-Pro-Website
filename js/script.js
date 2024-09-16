@@ -43,6 +43,9 @@ pagewrapper.addEventListener("touchmove", function (e) {
 });
 
 
+
+
+// Function to handle both scroll and touch events
 gsap.to(".marquee", {
   transform: "translateX(0%)",
   duration: 2,
@@ -84,16 +87,21 @@ window.addEventListener("wheel", function (position) {
   handleScrollOrTouch(position.deltaY);
 });
 
-// Touch event for mobile
+// Variables to track touch start and end
 let touchStartY = 0;
-let touchEndY = 0;
 
+// Touch start event
 window.addEventListener("touchstart", function (e) {
-  touchStartY = e.touches[0].clientY;
+  touchStartY = e.touches[0].clientY; // Record the Y-coordinate where the touch started
 });
 
-window.addEventListener("touchmove", function (e) {
-  touchEndY = e.touches[0].clientY;
-  const deltaY = touchStartY - touchEndY; // Calculate the vertical touch movement
-  handleScrollOrTouch(deltaY);
+// Touch end event to determine the final direction
+window.addEventListener("touchend", function (e) {
+  const touchEndY = e.changedTouches[0].clientY; // Get the Y-coordinate where the touch ended
+  const deltaY = touchStartY - touchEndY; // Calculate the difference (positive for upward swipe, negative for downward)
+  
+  // If deltaY is significant enough, handle the swipe action
+  if (Math.abs(deltaY) > 30) { // Only trigger on significant touch movement (30px)
+    handleScrollOrTouch(deltaY);
+  }
 });
