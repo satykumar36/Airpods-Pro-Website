@@ -41,3 +41,39 @@ pagewrapper.addEventListener("touchmove", function (e) {
   var touch = e.touches[0];
   moveCursor(touch.clientX, touch.clientY);
 });
+
+
+
+gsap.to(".marquee",{
+  transform:"translateX(0%)",
+  duration:2,
+  repeat:-1,
+  ease:"none",
+})
+gsap.to(".marquee i",{
+  rotate:0,
+})
+window.addEventListener("wheel",function(position){
+  if(position.deltaY <0){
+  gsap.to(".marquee",{
+    transform:"translateX(-200%)",
+    duration:2,
+    repeat:-1,
+    ease:"none",
+  })
+  gsap.to(".marquee i",{
+    rotate:-180,
+  })
+}
+else{
+  gsap.to(".marquee",{
+    transform:"translateX(0%)",
+    duration:2,
+    repeat:-1,
+    ease:"none",
+  })
+  gsap.to(".marquee i",{
+    rotate:0,
+  })
+}
+})
