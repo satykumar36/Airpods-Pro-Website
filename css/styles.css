@@ -31,7 +31,6 @@ nav {
   justify-content: center;
   margin: 0 auto;
   padding-inline: 10px;
-  border: 1px solid white;
 }
 .nav-content {
 
@@ -122,7 +121,6 @@ section {
   min-height: 100vh;
   background: #000;
   color: #f5f5f7;
-  border: 1px solid white;
   padding-inline: 10px;
 }
 
