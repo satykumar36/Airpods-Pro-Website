@@ -19,12 +19,25 @@ let controller = new ScrollMagic.Controller();
 
 
 // GSAP
-var pagewrapper = document.querySelector(".section-01");
+var pagewrapper = document.querySelector("main");  // Selecting the <main> tag
 var cursor = document.querySelector(".cursor");
-pagewrapper.addEventListener("mousemove", function (dots) {
+
+// Function to move the cursor
+function moveCursor(x, y) {
   gsap.to(".cursor", {
-    x: dots.x,
-    y: dots.y,
-    duration:1.2,
+    x: x,
+    y: y,
+    duration: 1.2,
   });
+}
+
+// Mousemove event for desktop
+pagewrapper.addEventListener("mousemove", function (e) {
+  moveCursor(e.clientX, e.clientY);
+});
+
+// Touchmove event for mobile
+pagewrapper.addEventListener("touchmove", function (e) {
+  var touch = e.touches[0];
+  moveCursor(touch.clientX, touch.clientY);
 });
