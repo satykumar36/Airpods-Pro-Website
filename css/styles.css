@@ -295,7 +295,7 @@ width: 100%;
 
 /* ------------ FOOTER ------------ */
 footer {
-  background: #f5f5f7;
+  background-color: black;
 }
 footer .my-4 {
   margin:0 !important
@@ -343,4 +343,8 @@ section.section-02.scroll-section.head-bob-turn {
 .marquee i {
   font-size: 30px;
   color: white;
+}
+.text-body-secondary {
+  --bs-text-opacity: 1;
+  color: white !important;
 }
