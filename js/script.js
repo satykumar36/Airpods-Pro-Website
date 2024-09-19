@@ -15,11 +15,8 @@ window.addEventListener("scroll", () => {
 /* ScrollMagic Controller */
 let controller = new ScrollMagic.Controller();
 
-
-
-
-// GSAP
-var pagewrapper = document.querySelector("main");  // Selecting the <main> tag
+// <=======Gsap for cursor moving========>
+var pagewrapper = document.querySelector("main"); // Selecting the <main> tag
 var cursor = document.querySelector(".cursor");
 
 // Function to move the cursor
@@ -42,66 +39,66 @@ pagewrapper.addEventListener("touchmove", function (e) {
   moveCursor(touch.clientX, touch.clientY);
 });
 
+// <=======Gsap for text scrolling========>
 
-
-
-// Function to handle both scroll and touch events
-gsap.to(".marquee", {
-  transform: "translateX(0%)",
+  // Initial setup: forward animation for the marquee
+let marqueeAnimation = gsap.to(".marquee", {
+  xPercent: 0, // Start from original position
   duration: 2,
-  repeat: -1,
+  repeat: -1, // Infinite loop
   ease: "none",
 });
 
-gsap.to(".marquee i", {
-  rotate: 0,
-});
+// Function to handle scroll interaction (reverse or forward)
+function handleScroll(deltaY) {
+  marqueeAnimation.kill(); // Stop the current animation before setting a new one
 
-// Function to handle both scroll and touch events
-function handleScrollOrTouch(deltaY) {
   if (deltaY < 0) {
-    gsap.to(".marquee", {
-      transform: "translateX(-200%)",
+    // Scrolling upward, move marquee backward
+    marqueeAnimation = gsap.to(".marquee", {
+      xPercent: -200, // Move marquee in reverse
       duration: 2,
       repeat: -1,
       ease: "none",
     });
     gsap.to(".marquee i", {
-      rotate: -180,
+      rotate: -180, // Rotate arrow
+      duration: 0.5, // Smooth transition
+      ease: "power2.out",
     });
   } else {
-    gsap.to(".marquee", {
-      transform: "translateX(0%)",
+    // Scrolling downward, move marquee forward
+    marqueeAnimation = gsap.to(".marquee", {
+      xPercent: 0, // Move marquee forward
       duration: 2,
       repeat: -1,
       ease: "none",
     });
     gsap.to(".marquee i", {
-      rotate: 0,
+      rotate: 0, // Reset arrow rotation
+      duration: 0.5, // Smooth transition
+      ease: "power2.out",
     });
   }
 }
 
-// Wheel event for desktop
-window.addEventListener("wheel", function (position) {
-  handleScrollOrTouch(position.deltaY);
+// Wheel event listener for desktop scrolling
+window.addEventListener("wheel", function (e) {
+  // Trigger marquee scroll on any direction change
+  handleScroll(e.deltaY);
 });
 
-// Variables to track touch start and end
-let touchStartY = 0;
 
-// Touch start event
-window.addEventListener("touchstart", function (e) {
-  touchStartY = e.touches[0].clientY; // Record the Y-coordinate where the touch started
+
+
+
+
+// GSAP animation to create a disco light effect for the cursor
+gsap.to(".cursor", {
+  borderColor: "hsl(+=360, 100%, 50%)", // Cycle through HSL colors smoothly
+  duration: 5, // Increase duration for smoother transitions
+  repeat: -1,  // Infinite loop
+  ease: "linear", // Linear easing for smooth color change
 });
 
-// Touch end event to determine the final direction
-window.addEventListener("touchend", function (e) {
-  const touchEndY = e.changedTouches[0].clientY; // Get the Y-coordinate where the touch ended
-  const deltaY = touchStartY - touchEndY; // Calculate the difference (positive for upward swipe, negative for downward)
-  
-  // If deltaY is significant enough, handle the swipe action
-  if (Math.abs(deltaY) > 30) { // Only trigger on significant touch movement (30px)
-    handleScrollOrTouch(deltaY);
-  }
-});
+
